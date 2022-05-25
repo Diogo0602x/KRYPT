@@ -15,10 +15,11 @@ const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, 
             2xl:max-w-[500px]
             sm:min-w-[270px]
             sm:max-w-[300px]
-            flex-col p-3 rounded-md hover:shadow-2x1
+            min-w-full
+            flex-col p-3 rounded-md hover:shadow-2xl
         '>
             <div className='flex flex-col items-center w-full mt-3'>
-                <div className='w-full mb-6 p-2'>
+                <div className='display-flex justify-start w-full mb-6 p-2'>
                     <a href={`https://ropsten.etherscan.io//address/${addressFrom}`} target='_blank' rel='noopener noreferrer'>
                         <p className='text-white text-base'>From: {shortenAddress(addressFrom)}</p>
                     </a>
@@ -36,7 +37,7 @@ const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, 
                 <img
                     src={giUrl || url}
                     alt='gif'
-                    className='w-full h-64 2x:h-96 rounded-md shadow-lg object-cover'
+                    className='w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover'
                 />
 
                 <div className='bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl'>
