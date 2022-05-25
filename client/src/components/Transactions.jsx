@@ -4,8 +4,11 @@ import { TransactionContext } from '../context/TransactionContext';
 
 import dummyData from '../utils/dummyData';
 import { shortenAddress } from '../utils/shortenAddress';
+import useFetch from '../hooks/useFetch';
 
 const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, amount, url }) => {
+    const giUrl = useFetch({keyword});
+
     return (
         <div className='bg-[#181918] m-4 flex flex-1
             2xl:min-w-[450px]
@@ -29,11 +32,15 @@ const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, 
                             <p className='text-white text-base'>Message: {message}</p>
                         </>
                     )}
+                </div>
+                <img
+                    src={giUrl || url}
+                    alt='gif'
+                    className='w-full h-64 2x:h-96 rounded-md shadow-lg object-cover'
+                />
 
-                    <div className='bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl'>
-                        <p className='text-[#37c7da]' front-bold>{timestamp}</p>
-                    </div>
-
+                <div className='bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl'>
+                    <p className='text-[#37c7da]' front-bold>{timestamp}</p>
                 </div>
             </div>
         </div>
