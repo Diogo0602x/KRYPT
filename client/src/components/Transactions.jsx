@@ -41,7 +41,7 @@ const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, 
                 />
 
                 <div className='bg-black p-3 px-5 w-max rounded-3xl -mt-5 shadow-2xl'>
-                    <p className='text-[#37c7da]' front-bold>{timestamp}</p>
+                    <p className='text-[#37c7da] font-bold'>{timestamp}</p>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@ const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, 
 }
 
 const Transactions = () => {
-    const {currentAccount } = useContext(TransactionContext);
+    const {currentAccount, transactions } = useContext(TransactionContext);
   
     return (
       <div className='flex w-full justify-center items-center 2xl:px-20 gradient-bg-transactions'>
@@ -65,10 +65,9 @@ const Transactions = () => {
           )}
   
           <div className='flex flex-wrap justify-center items-center mt-10'>
-            {dummyData.reverse().map((transaction, i) => (
+            {transactions.reverse().map((transaction, i) => (
                 <TransactionCard key={i} {...transaction} />
-            ))}
-                
+            ))}    
           </div>
         </div>
       </div>
