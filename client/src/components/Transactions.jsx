@@ -7,7 +7,7 @@ import { shortenAddress } from '../utils/shortenAddress';
 import useFetch from '../hooks/useFetch';
 
 const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, amount, url }) => {
-    const giUrl = useFetch({keyword});
+    const gifUrl = useFetch({keyword});
 
     return (
         <div className='bg-[#181918] m-4 flex flex-1
@@ -29,13 +29,13 @@ const TransactionCard = ({ addressTo, addressFrom, timestamp, message, keyword, 
                     <p className='text-white text-base'>Amount: {amount} ETH</p>
                     {message && (
                         <>
-                            <br/>
-                            <p className='text-white text-base'>Message: {message}</p>
+                          <br/>
+                          <p className='text-white text-base'>Message: {message}</p>
                         </>
                     )}
                 </div>
                 <img
-                    src={giUrl || url}
+                    src={gifUrl || url}
                     alt='gif'
                     className='w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover'
                 />
