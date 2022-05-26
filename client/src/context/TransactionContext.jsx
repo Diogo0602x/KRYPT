@@ -114,7 +114,7 @@ export const TransactionProvider = ({children}) => {
                   to: addressTo,
                   gas: "0x5208",
                   value: parsedAmount._hex,
-                }],
+                }]
             });
 
             const transactionHash = await transactionContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
