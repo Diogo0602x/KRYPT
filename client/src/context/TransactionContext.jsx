@@ -15,6 +15,10 @@ const getEthereumContract = () => {
     return transactionContract;
 }
 
+function refreshPage() {
+    window.location.reload(false);
+  }
+
 export const TransactionProvider = ({children}) => {
     const [currentAccount, setCurrentAccount] = useState('');
     const [formData, setFormData] = useState({ addressTo: '', amount: '', keyword: '', message: '' });
@@ -92,6 +96,7 @@ export const TransactionProvider = ({children}) => {
             const accounts = await ethereum.request({method:'eth_requestAccounts'});
             
             setCurrentAccount(accounts[0]);
+            refreshPage();
         } catch (error) {
             console.log(error);
 
@@ -129,7 +134,7 @@ export const TransactionProvider = ({children}) => {
 
             setTransactionCount(transactionCount.toNumber());
 
-            window.reload();
+            refreshPage();
         } catch (error) {
             console.log(error);
 
